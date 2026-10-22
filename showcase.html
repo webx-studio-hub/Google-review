@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Review Page Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Mukta:wght@400;500;600&display=swap">
+<style>
+:root{--saffron:#F4A300;--maroon:#7A1F2B;--cream:#FFF8EC;--ink:#2B1A14;--muted:#7A6457;--line:#EBD9BC;--leaf:#2E7D32}
+*{box-sizing:border-box}
+body{margin:0;background:#F6EBD6;color:var(--ink);font:400 15px/1.5 "Mukta",system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif;margin:0;line-height:1.15}
+.wrap{max-width:1500px;margin:0 auto;padding:40px 24px 64px}
+header.page{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:28px}
+header.page h1{font-size:clamp(28px,4vw,40px);color:var(--maroon);font-weight:800}
+header.page p{margin:6px 0 0;color:var(--muted);max-width:640px}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 4px;font-size:12.5px}
+.sw i{width:24px;height:24px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+h2.sec{font-size:24px;color:var(--maroon);margin:44px 0 6px;display:flex;align-items:center;gap:10px}
+h2.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+p.sec{margin:0 0 20px;color:var(--muted)}
+.rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(395px,1fr));gap:32px 24px}
+.shot{display:flex;flex-direction:column;align-items:center}
+.phone{width:395px;padding:40px 10px 14px;border-radius:52px;background:#1F1310;box-shadow:0 30px 60px -30px rgba(94,21,32,.6),inset 0 0 0 2px #3a2620;position:relative}
+.phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:96px;height:24px;border-radius:20px;background:#1F1310;z-index:2}
+.phone iframe{display:block;width:375px;height:780px;border:0;border-radius:6px 6px 38px 38px;background:var(--cream)}
+.cap{margin-top:14px;text-align:center;max-width:360px}
+.cap b{font:700 16px "Baloo 2",sans-serif;color:var(--maroon)}
+.cap .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--saffron);color:#4A0F18;font:800 12px/1 "Baloo 2";margin-right:6px;vertical-align:2px}
+.cap p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+.cap a{color:var(--maroon);font-size:12.5px}
+.desk{background:#1F1310;border-radius:18px;padding:30px 12px 12px;position:relative;box-shadow:0 30px 60px -30px rgba(94,21,32,.6)}
+.desk::before{content:"";position:absolute;top:11px;left:16px;width:9px;height:9px;border-radius:50%;background:#E5534B;box-shadow:16px 0 #E9B23C,32px 0 #58B85C}
+.desk .vp{overflow:hidden;border-radius:8px;background:var(--cream)}
+.desk iframe{display:block;width:1440px;border:0;transform-origin:0 0}
+.note{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;font-size:14px}
+.note h3{color:var(--maroon);font-size:18px;margin-bottom:6px}
+.note ul{margin:0;padding-left:18px}
+.note code{background:#FCEFD6;padding:1px 6px;border-radius:6px;font-size:13px}
+@media(max-width:440px){.rail{grid-template-columns:1fr}.phone{transform:scale(.86);transform-origin:top center;margin-bottom:-110px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <div>
+      <h1>Tandoori Tadka Dhaba · Review page</h1>
+      <p>QR-to-Google review flow. Each frame below is the live page (<a href="index.html">index.html</a>) opened at a specific step, so every screen is clickable.</p>
+    </div>
+    <div class="swatches">
+      <span class="sw"><i style="background:#F4A300"></i>Saffron #F4A300</span>
+      <span class="sw"><i style="background:#7A1F2B"></i>Maroon #7A1F2B</span>
+      <span class="sw"><i style="background:#FFF8EC"></i>Cream #FFF8EC</span>
+      <span class="sw"><i style="background:#2E7D32"></i>Leaf #2E7D32</span>
+    </div>
+  </header>
+
+  <h2 class="sec">Mobile flow</h2>
+  <p class="sec">375 × 780 · thumb-zone sticky CTA · Hinglish default</p>
+  <div class="rail" id="flow"></div>
+
+  <h2 class="sec">States &amp; edge cases</h2>
+  <p class="sec">Empty states, toast, private feedback, low rating (same Google button), languages, interaction states</p>
+  <div class="rail" id="states"></div>
+
+  <h2 class="sec">Desktop</h2>
+  <p class="sec">1440px wide · sticky brand panel on the left, steps on the right</p>
+  <div class="desk"><div class="vp" id="vp"><iframe id="dk" src="index.html?preset=1&screen=hero" title="Desktop view" scrolling="no"></iframe></div></div>
+
+  <div class="note">
+    <h3>Before going live</h3>
+    <ul>
+      <li>Replace the demo values in the <code>R</code> config at the top of the script in index.html: name, <code>placeId</code>, rating, phone/WhatsApp, links.</li>
+      <li>Dish photos are free-licensed demo photos from Wikimedia Commons (see <a href="credits.html">credits</a>). Swap in the restaurant's own shots by replacing the files in <code>img/dishes/</code> (same names) and <code>img/hero.jpg</code>.</li>
+      <li>Every rating shows the same “Post on Google” button. Private feedback is extra and never replaces it. There are no rewards for reviews.</li>
+    </ul>
+  </div>
+</div>
+<script>
+const flow = [
+  ['hero','Hero','Logo, Google rating, thank-you line, start button'],
+  ['dishes&preset=1','Step 1 · Dishes','Category tabs, search, multi-select with tray'],
+  ['rating&preset=1','Step 2 · Rating','Big animated stars + emoji reaction'],
+  ['tags&preset=1','Step 3 · Quick tags','Tap as many as you like'],
+  ['text&preset=1','Step 4 · Your words','Auto-draft from picks, fully editable'],
+  ['cta&preset=1','Step 5 · Post on Google','Copy-then-open, with the private option below'],
+  ['thanks','Thank you','Instagram, Zomato, Swiggy, WhatsApp share, save contact']
+];
+const states = [
+  ['toast&preset=1','Copied toast','Shown right before Google opens'],
+  ['dishes&q=biryani','Empty search','No match + “dishes are optional”'],
+  ['rating','Empty rating','Nothing picked yet, greyed emoji'],
+  ['text','Empty review box','Placeholder + draft helper'],
+  ['cta&preset=low','Low rating (2★)','Same “Post on Google” button for every rating'],
+  ['sheet&preset=1','Private feedback','Name, phone, message → WhatsApp or email'],
+  ['dishes&preset=1&lang=hi','हिंदी','Devanagari UI and dish names'],
+  ['rating&preset=1&lang=pa','ਪੰਜਾਬੀ','Gurmukhi UI, loaded only when picked'],
+  ['states&lang=en','Interaction states','Hover, selected, pressed, focus']
+];
+const card = ([q,title,desc],i,num) => `<div class="shot"><div class="phone"><iframe loading="lazy" src="index.html?screen=${q}" title="${title}"></iframe></div>
+  <div class="cap">${num ? `<span class="n">${i+1}</span>` : ''}<b>${title}</b><p>${desc}</p><a href="index.html?screen=${q}" target="_blank">Open ↗</a></div></div>`;
+document.getElementById('flow').innerHTML = flow.map((s,i) => card(s,i,true)).join('');
+document.getElementById('states').innerHTML = states.map((s,i) => card(s,i,false)).join('');
+
+const vp = document.getElementById('vp'), dk = document.getElementById('dk');
+function fit(){
+  const s = vp.clientWidth / 1440;
+  let h = 2600;
+  try { h = dk.contentDocument.documentElement.scrollHeight || h } catch(e){}
+  dk.style.height = h + 'px'; dk.style.transform = `scale(${s})`; vp.style.height = (h * s) + 'px';
+}
+dk.addEventListener('load', () => { fit(); setTimeout(fit, 800); });
+addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
